@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Kirankumar S — Full-Stack oriented Software Development Engineer with 3 years of experience in React.js, Node.js, SPFx, and enterprise SaaS applications. Based in Bengaluru, Karnataka."/>
+<meta name="keywords" content="Kirankumar S, Software Developer, React.js, SPFx, Full Stack, Bengaluru, Frontend Engineer, Node.js"/>
+<meta name="author" content="Kirankumar S"/>
+<meta property="og:title" content="Kirankumar S | Software Development Engineer"/>
+<meta property="og:description" content="Full-Stack oriented SDE specializing in React.js, SPFx, and enterprise SaaS applications."/>
+<meta property="og:type" content="website"/>
+<title>Kirankumar S | Software Development Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --accent:#6366f1;
+  --accent2:#8b5cf6;
+  --bg:#f8f7ff;
+  --bg2:#ede9fe;
+  --bg3:#ddd6fe;
+  --card:#ffffff;
+  --text:#1e1b4b;
+  --text2:#4c4980;
+  --border:#e0d9ff;
+  --shadow:rgba(99,102,241,0.12);
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;scroll-behavior:smooth;}
+
+/* THEME SWITCHER */
+.theme-bar{position:fixed;top:16px;right:16px;z-index:999;display:flex;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:6px 10px;box-shadow:0 4px 20px var(--shadow);}
+.theme-dot{width:22px;height:22px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:transform .2s,border-color .2s;}
+.theme-dot:hover,.theme-dot.active{transform:scale(1.2);border-color:#fff;}
+.t-indigo{background:linear-gradient(135deg,#6366f1,#8b5cf6);}
+.t-rose{background:linear-gradient(135deg,#f43f5e,#fb7185);}
+.t-teal{background:linear-gradient(135deg,#14b8a6,#06b6d4);}
+.t-amber{background:linear-gradient(135deg,#f59e0b,#f97316);}
+.t-green{background:linear-gradient(135deg,#22c55e,#16a34a);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,247,255,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.nav-logo{font-weight:800;font-size:1.1rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--text2);font-size:.88rem;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--accent);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
+.mobile-menu{display:none;flex-direction:column;gap:0;background:var(--card);border-top:1px solid var(--border);}
+.mobile-menu a{padding:14px 5%;text-decoration:none;color:var(--text2);font-weight:500;border-bottom:1px solid var(--border);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:80px 5% 40px;background:linear-gradient(160deg,var(--bg) 60%,var(--bg2) 100%);}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-tag{display:inline-block;background:var(--bg3);color:var(--accent);font-size:.78rem;font-weight:600;padding:5px 14px;border-radius:50px;margin-bottom:16px;letter-spacing:.5px;}
+.hero h1{font-size:3rem;font-weight:800;line-height:1.15;margin-bottom:16px;}
+.hero h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{color:var(--text2);font-size:1rem;line-height:1.7;margin-bottom:28px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{padding:11px 24px;border-radius:10px;font-size:.9rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s;border:none;}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 4px 16px var(--shadow);}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px);}
+.btn-outline{background:transparent;color:var(--accent);border:2px solid var(--accent);}
+.btn-outline:hover{background:var(--bg2);}
+.hero-visual{display:flex;justify-content:center;}
+.avatar-wrap{position:relative;width:280px;height:280px;}
+.avatar-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:40% 60% 55% 45%/50% 45% 55% 50%;animation:morph 6s ease-in-out infinite;opacity:.15;}
+@keyframes morph{0%,100%{border-radius:40% 60% 55% 45%/50% 45% 55% 50%;}50%{border-radius:55% 45% 40% 60%/45% 55% 50% 50%;}}
+.avatar-inner{position:absolute;inset:20px;background:linear-gradient(135deg,var(--bg2),var(--bg3));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:5rem;box-shadow:0 8px 32px var(--shadow);}
+.hero-stats{display:flex;gap:24px;margin-top:8px;}
+.stat{text-align:center;}
+.stat-num{font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.stat-label{font-size:.72rem;color:var(--text2);font-weight:500;}
+
+/* SECTIONS */
+section{padding:70px 5%;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-tag{font-size:.78rem;font-weight:700;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.section-title{font-size:2rem;font-weight:800;margin-bottom:40px;}
+
+/* EXPERIENCE */
+.timeline{display:flex;flex-direction:column;gap:0;}
+.tl-item{display:grid;grid-template-columns:160px 1fr;gap:0 28px;position:relative;}
+.tl-item:not(:last-child)::after{content:'';position:absolute;left:159px;top:28px;bottom:-1px;width:2px;background:var(--bg3);}
+.tl-date{text-align:right;padding-top:4px;font-size:.8rem;color:var(--text2);font-weight:500;line-height:1.4;}
+.tl-dot{position:absolute;left:150px;top:8px;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 0 4px var(--bg3);}
+.tl-content{padding:0 0 32px 20px;}
+.tl-title{font-size:1rem;font-weight:700;margin-bottom:2px;}
+.tl-company{font-size:.85rem;color:var(--accent);font-weight:600;margin-bottom:10px;}
+.tl-content ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.tl-content ul li{font-size:.85rem;color:var(--text2);padding-left:14px;position:relative;line-height:1.5;}
+.tl-content ul li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.75rem;}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.proj-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--shadow);}
+.proj-badge{display:inline-block;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:50px;background:var(--bg2);color:var(--accent);margin-bottom:14px;}
+.proj-title{font-size:1.1rem;font-weight:700;margin-bottom:6px;}
+.proj-role{font-size:.8rem;color:var(--accent);font-weight:600;margin-bottom:10px;}
+.proj-desc{font-size:.85rem;color:var(--text2);line-height:1.6;margin-bottom:16px;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{font-size:.72rem;padding:3px 10px;border-radius:50px;background:var(--bg3);color:var(--text2);font-weight:500;}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform .2s,box-shadow .2s;}
+.skill-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px var(--shadow);}
+.skill-cat{font-size:.75rem;font-weight:700;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px;}
+.skill-items{display:flex;flex-wrap:wrap;gap:7px;}
+.skill-pill{font-size:.78rem;padding:4px 11px;border-radius:50px;background:var(--bg2);color:var(--text);font-weight:500;border:1px solid var(--border);}
+
+/* EDUCATION */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;gap:16px;align-items:flex-start;transition:transform .2s,box-shadow .2s;}
+.edu-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px var(--shadow);}
+.edu-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.edu-deg{font-size:.95rem;font-weight:700;margin-bottom:4px;}
+.edu-school{font-size:.82rem;color:var(--accent);font-weight:600;margin-bottom:4px;}
+.edu-year{font-size:.78rem;color:var(--text2);}
+
+/* CONTACT */
+#contact{background:linear-gradient(160deg,var(--bg2),var(--bg));}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+.contact-info{display:flex;flex-direction:column;gap:16px;}
+.contact-item{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 20px;}
+.contact-icon{width:40px;height:40px;border-radius:10px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.contact-label{font-size:.75rem;color:var(--text2);font-weight:500;margin-bottom:2px;}
+.contact-val{font-size:.88rem;font-weight:600;color:var(--text);}
+.contact-val a{color:var(--accent);text-decoration:none;}
+.contact-val a:hover{text-decoration:underline;}
+.contact-cta{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;}
+.contact-cta h3{font-size:1.3rem;font-weight:700;margin-bottom:10px;}
+.contact-cta p{color:var(--text2);font-size:.88rem;line-height:1.6;margin-bottom:20px;}
+
+/* FOOTER */
+footer{text-align:center;padding:24px;font-size:.82rem;color:var(--text2);border-top:1px solid var(--border);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;gap:32px;text-align:center;}
+  .hero h1{font-size:2rem;}
+  .hero-visual{order:-1;}
+  .avatar-wrap{width:180px;height:180px;}
+  .hero-btns{justify-content:center;}
+  .hero-stats{justify-content:center;}
+  .tl-item{grid-template-columns:1fr;}
+  .tl-date{text-align:left;padding-bottom:4px;}
+  .tl-item::after{display:none;}
+  .tl-dot{display:none;}
+  .tl-content{padding:0 0 24px 0;}
+  .contact-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .section-title{font-size:1.5rem;}
+  .theme-bar{top:70px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Theme Switcher -->
+<div class="theme-bar" role="toolbar" aria-label="Theme selector">
+  <div class="theme-dot t-indigo active" onclick="setTheme('indigo')" title="Indigo"></div>
+  <div class="theme-dot t-rose"   onclick="setTheme('rose')"   title="Rose"></div>
+  <div class="theme-dot t-teal"   onclick="setTheme('teal')"   title="Teal"></div>
+  <div class="theme-dot t-amber"  onclick="setTheme('amber')"  title="Amber"></div>
+  <div class="theme-dot t-green"  onclick="setTheme('green')"  title="Green"></div>
+</div>
+
+<!-- Nav -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <div class="nav-logo">KS</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about"      onclick="toggleMenu()">About</a>
+    <a href="#experience" onclick="toggleMenu()">Experience</a>
+    <a href="#projects"   onclick="toggleMenu()">Projects</a>
+    <a href="#skills"     onclick="toggleMenu()">Skills</a>
+    <a href="#education"  onclick="toggleMenu()">Education</a>
+    <a href="#contact"    onclick="toggleMenu()">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="about" aria-label="Introduction">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">👋 Available for opportunities</span>
+      <h1>Hi, I'm <span>Kirankumar S</span></h1>
+      <p>Full-Stack oriented Software Development Engineer with ~3 years of experience building scalable, multilingual, production-grade enterprise SaaS applications. Based in Bengaluru, Karnataka.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact"  class="btn btn-outline">Contact Me</a>
+      </div>
+      <div class="hero-stats" style="margin-top:28px;">
+        <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Exp.</div></div>
+        <div class="stat"><div class="stat-num">2</div><div class="stat-label">SaaS Products</div></div>
+        <div class="stat"><div class="stat-num">5</div><div class="stat-label">Team Size Led</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-wrap">
+        <div class="avatar-bg"></div>
+        <div class="avatar-inner">👨‍💻</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience" aria-label="Work Experience">
+  <div class="section-inner">
+    <div class="section-tag">Career</div>
+    <h2 class="section-title">Work Experience</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date">June 2023<br/>Present</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Software Development Engineer</div>
+          <div class="tl-company">Cubiclogics India Pvt Ltd — Bengaluru</div>
+          <ul>
+            <li>Informally led teams of 3–5 engineers across two product verticals, handling task coordination, code reviews, and unblocking teammates.</li>
+            <li>Designed and implemented parallel and sequential approval workflow engines used across multiple client deployments.</li>
+            <li>Built reporting and dashboard modules using Chart.js with dynamic, role-filtered data views.</li>
+            <li>Collaborated directly with product managers, QA, and clients during requirements, UAT, and enhancement discussions.</li>
+            <li>Implemented multilingual support via react-localization and Microsoft Translator API for multi-region deployments.</li>
+            <li>Enforced secure RBAC at both UI and data access layers across applications.</li>
+            <li>Managed Azure App Services deployments, App Registration, and full Azure DevOps lifecycle.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Mar 2023<br/>Jun 2023</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Software Specialist – Intern</div>
+          <div class="tl-company">Cubiclogics India Pvt Ltd — Bengaluru</div>
+          <ul>
+            <li>Built approval workflows, contract creation/editing/archiving modules using SPFx and React.js.</li>
+            <li>Developed reusable Fluent UI components and integrated REST APIs in a Git-based team workflow.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" style="background:var(--bg2);" aria-label="Projects">
+  <div class="section-inner">
+    <div class="section-tag">Work</div>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+
+      <article class="proj-card">
+        <div class="proj-badge">Enterprise SaaS</div>
+        <div class="proj-title">Timesheet 365</div>
+        <div class="proj-role">Module Lead &amp; Core Developer</div>
+        <div class="proj-desc">Enterprise timesheet management system with approval workflows, dynamic dashboards, reporting modules, and multilingual support for multi-region client deployments.</div>
+        <div class="proj-tags">
+          <span class="tag">React.js</span><span class="tag">SPFx</span><span class="tag">Redux Toolkit</span>
+          <span class="tag">Zustand</span><span class="tag">Chart.js</span><span class="tag">Sass</span>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <div class="proj-badge">Enterprise SaaS</div>
+        <div class="proj-title">Recruitment 365</div>
+        <div class="proj-role">App Lead &amp; Core Developer</div>
+        <div class="proj-desc">Scalable recruitment platform with role-based workflows, multi-stage approvals, interview scheduling, feedback tracking, and full candidate lifecycle management.</div>
+        <div class="proj-tags">
+          <span class="tag">React.js</span><span class="tag">Next.js</span><span class="tag">SPFx</span>
+          <span class="tag">Redux Toolkit</span><span class="tag">Zustand</span><span class="tag">Sass</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" aria-label="Skills">
+  <div class="section-inner">
+    <div class="section-tag">Expertise</div>
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-items">
+          <span class="skill-pill">JavaScript (ES6+)</span><span class="skill-pill">TypeScript</span>
+          <span class="skill-pill">HTML5</span><span class="skill-pill">CSS3</span><span class="skill-pill">Sass</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Frontend</div>
+        <div class="skill-items">
+          <span class="skill-pill">React.js</span><span class="skill-pill">Next.js</span>
+          <span class="skill-pill">Redux Toolkit</span><span class="skill-pill">Zustand</span>
+          <span class="skill-pill">Chart.js</span><span class="skill-pill">Fluent UI</span><span class="skill-pill">Material UI</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">SharePoint</div>
+        <div class="skill-items">
+          <span class="skill-pill">SPFx</span><span class="skill-pill">SharePoint Lists</span><span class="skill-pill">Microsoft 365</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Backend</div>
+        <div class="skill-items">
+          <span class="skill-pill">Node.js</span><span class="skill-pill">REST API</span>
+          <span class="skill-pill">npm Packages</span><span class="skill-pill">Microservices</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Database</div>
+        <div class="skill-items">
+          <span class="skill-pill">MongoDB</span><span class="skill-pill">SharePoint Lists</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Cloud &amp; DevOps</div>
+        <div class="skill-items">
+          <span class="skill-pill">Azure App Services</span><span class="skill-pill">Azure DevOps</span>
+          <span class="skill-pill">App Registration</span><span class="skill-pill">Git</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education -->
+<section id="education" style="background:var(--bg2);" aria-label="Education">
+  <div class="section-inner">
+    <div class="section-tag">Academic</div>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-deg">Master of Computer Applications (MCA)</div>
+          <div class="edu-school">PES University, Bengaluru</div>
+          <div class="edu-year">Web Technologies · 2021 – 2023</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">📘</div>
+        <div>
+          <div class="edu-deg">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-school">L.B and S.B.S.C College Sagar, Shivamogga</div>
+          <div class="edu-year">2017 – 2020</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" aria-label="Contact">
+  <div class="section-inner">
+    <div class="section-tag">Get in Touch</div>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><div class="contact-label">Location</div><div class="contact-val">Bengaluru, Karnataka</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div><div class="contact-label">Email</div><div class="contact-val"><a href="mailto:kiran.workmail.99@gmail.com">kiran.workmail.99@gmail.com</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div><div class="contact-label">Phone</div><div class="contact-val">+91 9353532452</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💼</div>
+          <div><div class="contact-label">LinkedIn</div><div class="contact-val"><a href="https://linkedin.com/in/kirankumar-kannalli-57283120b" target="_blank" rel="noopener">kirankumar-kannalli</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🐙</div>
+          <div><div class="contact-label">GitHub</div><div class="contact-val"><a href="https://github.com/kirankk99" target="_blank" rel="noopener">github.com/kirankk99</a></div></div>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <h3>Let's work together 🚀</h3>
+        <p>I'm actively looking for full-stack or frontend engineering opportunities. Whether it's a full-time role or a collaboration, feel free to reach out — I'd love to connect!</p>
+        <a href="mailto:kiran.workmail.99@gmail.com" class="btn btn-primary">Send me an Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Kirankumar S · Built with ❤️ · Bengaluru, India</p>
+</footer>
+
+<script>
+const themes={
+  indigo:{accent:'#6366f1',accent2:'#8b5cf6',bg:'#f8f7ff',bg2:'#ede9fe',bg3:'#ddd6fe',card:'#ffffff',text:'#1e1b4b',text2:'#4c4980',border:'#e0d9ff',shadow:'rgba(99,102,241,0.12)'},
+  rose:  {accent:'#f43f5e',accent2:'#fb7185',bg:'#fff7f8',bg2:'#ffe4e6',bg3:'#fecdd3',card:'#ffffff',text:'#4c0519',text2:'#9f1239',border:'#fecdd3',shadow:'rgba(244,63,94,0.12)'},
+  teal:  {accent:'#14b8a6',accent2:'#06b6d4',bg:'#f0fdfa',bg2:'#ccfbf1',bg3:'#99f6e4',card:'#ffffff',text:'#042f2e',text2:'#0f766e',border:'#99f6e4',shadow:'rgba(20,184,166,0.12)'},
+  amber: {accent:'#f59e0b',accent2:'#f97316',bg:'#fffbeb',bg2:'#fef3c7',bg3:'#fde68a',card:'#ffffff',text:'#451a03',text2:'#92400e',border:'#fde68a',shadow:'rgba(245,158,11,0.12)'},
+  green: {accent:'#22c55e',accent2:'#16a34a',bg:'#f0fdf4',bg2:'#dcfce7',bg3:'#bbf7d0',card:'#ffffff',text:'#052e16',text2:'#166534',border:'#bbf7d0',shadow:'rgba(34,197,94,0.12)'},
+};
+
+function setTheme(name){
+  const t=themes[name];
+  const r=document.documentElement.style;
+  r.setProperty('--accent',t.accent);
+  r.setProperty('--accent2',t.accent2);
+  r.setProperty('--bg',t.bg);
+  r.setProperty('--bg2',t.bg2);
+  r.setProperty('--bg3',t.bg3);
+  r.setProperty('--card',t.card);
+  r.setProperty('--text',t.text);
+  r.setProperty('--text2',t.text2);
+  r.setProperty('--border',t.border);
+  r.setProperty('--shadow',t.shadow);
+  document.querySelectorAll('.theme-dot').forEach(d=>d.classList.remove('active'));
+  document.querySelector('.t-'+name).classList.add('active');
+}
+
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  m.style.display=m.style.display==='flex'?'none':'flex';
+}
+
+// smooth active nav highlight on scroll
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.style.color=a.getAttribute('href')==='#'+cur?'var(--accent)':'';
+  });
+});
+</script>
+</body>
+</html>
